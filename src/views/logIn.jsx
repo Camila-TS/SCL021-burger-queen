@@ -10,9 +10,12 @@ function LogIn() {
 
   return (
     <div className={styles.login}>
+        
         <h1>Burger <Logo className={styles.logo}/> Paradise</h1>
-        <button><Link className={styles.link} to="/">Mesero</Link></button><br />
-        <button><Link className={styles.link} to="/kitchen">Cocina</Link></button>
+        <div className={styles.wrapper}>
+          <button><Link className={styles.link} to="/">Mesero</Link></button><br />
+          <button><Link className={styles.link} to="/kitchen">Cocina</Link></button>
+        </div>
     </div>
   )
 }
