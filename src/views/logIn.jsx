@@ -4,7 +4,7 @@ import {
   } from "react-router-dom";
 
   import Logo from '../components/Logo';
-  import styles from './logIn.module.css'
+  import styles from './logIn.module.css';
 
 function LogIn() {
 
