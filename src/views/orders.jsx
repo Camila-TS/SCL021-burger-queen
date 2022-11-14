@@ -5,8 +5,27 @@ import React from 'react'
 
 import Logo from '../components/Logo';
 import styles from './orders.module.css';
+import Menu from '../menu.json'
+import Item from '../components/Item';
 
 function Orders() {
+
+  const [menuOption, setMenuOption] = React.useState(true);
+  
+    const setBreakfast = () => {
+        setMenuOption(true)
+    }
+    const setDay = () => {
+        setMenuOption(false)
+    }
+
+const breakfast = Menu.breakfast;
+const day = Menu.day;
+
+// console.log(breakfast)
+// console.log(day)
+
+const choice = menuOption ? breakfast : day
 
   return (
     <div className={styles.orders}>
@@ -17,8 +36,18 @@ function Orders() {
       <h1>Tomar Pedido</h1>
       <div className={styles.menuWrapper}>
         <div className={styles.buttonWrapper}>
-          <button className={styles.menuButton}>Desayuno</button>
-          <button className={styles.menuButton}>Día</button>
+          <button onClick={setBreakfast} className={styles.menuButton}>Desayuno</button>
+          <button  onClick={setDay} className={styles.menuButton}>Día</button>
+          <div className={styles.items}>
+          {choice.map((items, index) => {
+            return (
+              <Item 
+              key={index} 
+              items={items} 
+              className={styles.item}/>
+              );
+            })}
+        </div>
         </div>
         <div className={styles.order}>
           <input type="text" placeholder='Cliente'/><br />

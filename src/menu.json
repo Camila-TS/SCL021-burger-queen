@@ -1,0 +1,63 @@
+{
+    "name": "Menu",
+    "breakfast": [
+        {
+            "item": "Café",
+            "price": 2000
+        },
+        {
+            "item": "Té",
+            "price": 1500
+        },
+        {
+            "item": "Jugo",
+            "price": 2000
+        },
+        {
+            "item": "Té",
+            "price": 1500
+        },
+        {
+            "item": "Sandwich",
+            "price": 4000
+        },
+        {
+            "item": "Pastel",
+            "price": 2500
+        }
+    ],
+    "day": [
+        {
+            "item": "Hamburguesa simple",
+            "price": 5500
+        },
+        {
+            "item": "Hamburguesa doble",
+            "price": 7000
+        },
+        {
+            "item": "Papas fritas",
+            "price": 3000
+        },
+        {
+            "item": "Aros de cebolla",
+            "price": 3000
+        },
+        {
+            "item": "Queso",
+            "price": 1000
+        },
+        {
+            "item": "Huevo",
+            "price": 1000
+        },
+        {
+            "item": "Jugo",
+            "price": 2000
+        },
+        {
+            "item": "Bebida",
+            "price": 1500
+        }
+    ]
+}

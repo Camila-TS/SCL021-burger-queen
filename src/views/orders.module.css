@@ -86,6 +86,31 @@
     border: none;
     background: #75C3EE;
     padding: 6px 20px;
-    margin-top: 220px;
-    margin-left: 880px;
+    margin-top: 210px;
+    margin-left: 870px;
+}
+
+@media only screen and (max-width: 830px) {
+
+    .orders .menuWrapper {
+        margin-top: 100px;
+    }
+
+    .orders .buttonWrapper {
+        margin-left: -20px;
+    }
+
+    .orders .order {
+        width: 400px;
+        height: 380px;
+    }
+
+    .orders .eachOrder {
+        margin-top: 180px;
+    }
+
+    .orders .kitchenButton {
+        margin-top: 370px;
+        margin-left: 620px;
+    }
 }
