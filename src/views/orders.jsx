@@ -11,6 +11,7 @@ import Item from '../components/Item';
 function Orders() {
 
   const [menuOption, setMenuOption] = React.useState(true);
+  const [pedido, setPedido] = React.useState([]);
   
     const setBreakfast = () => {
         setMenuOption(true)
@@ -26,6 +27,28 @@ const day = Menu.day;
 // console.log(day)
 
 const choice = menuOption ? breakfast : day
+
+const addProduct = (items) => {
+
+  const itemsValue = (items.childNodes[0].nodeValue)
+
+  setPedido([
+    ...pedido,
+    itemsValue
+    //(items.item),
+    //(items.price) //... qué hago con los 3 puntos, que hay q actualizar
+  ]);
+
+  console.log(pedido)
+  //console.log(items.item) undefined
+  //console.log(setPedido)
+  //console.log([...pedido])
+  //console.log(addProduct)
+  //console.log(items) //es todo el h4
+  //console.log(items.childNodes[0].nodeValue)
+  //console.log(items.nodeValue) //null
+  //console.log(typeof items) //object
+}
 
   return (
     <div className={styles.orders}>
@@ -44,7 +67,9 @@ const choice = menuOption ? breakfast : day
               <Item 
               key={index} 
               items={items} 
-              className={styles.item}/>
+              className={styles.item}
+              onClick={(e) => addProduct(e.target)}
+              />
               );
             })}
         </div>
@@ -52,6 +77,7 @@ const choice = menuOption ? breakfast : day
         <div className={styles.order}>
           <input type="text" placeholder='Cliente'/><br />
           <div className={styles.eachOrder}>
+            <span className={styles.itemsSelection}></span>
             <label >Total</label><br />
             <label >Observación</label>
             <input type="text" /><br />

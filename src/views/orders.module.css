@@ -38,6 +38,15 @@
     padding: 10px 15px;
 }
 
+.orders .item {
+    border-radius: 10px;
+    border: none;
+    background: #5CCC6E;
+    text-align: center;
+    padding: 10px 15px;
+    width: fit-content;
+}
+
 .orders .order {
     background: #B9AEAE;
     width: 427px;
@@ -86,7 +95,7 @@
     border: none;
     background: #75C3EE;
     padding: 6px 20px;
-    margin-top: 210px;
+    margin-top: 100px;
     margin-left: 870px;
 }
 
@@ -110,7 +119,7 @@
     }
 
     .orders .kitchenButton {
-        margin-top: 370px;
+        margin-top: 290px;
         margin-left: 620px;
     }
 }
