@@ -28,26 +28,15 @@ const day = Menu.day;
 
 const choice = menuOption ? breakfast : day
 
-const addProduct = (items) => {
-
-  const itemsValue = (items.childNodes[0].nodeValue)
+const addProduct = (item) => {
 
   setPedido([
     ...pedido,
-    itemsValue
-    //(items.item),
-    //(items.price) //... qué hago con los 3 puntos, que hay q actualizar
+    item
   ]);
 
-  console.log(pedido)
-  //console.log(items.item) undefined
-  //console.log(setPedido)
-  //console.log([...pedido])
-  //console.log(addProduct)
-  //console.log(items) //es todo el h4
-  //console.log(items.childNodes[0].nodeValue)
-  //console.log(items.nodeValue) //null
-  //console.log(typeof items) //object
+  //console.log(pedido)
+
 }
 
   return (
@@ -62,22 +51,22 @@ const addProduct = (items) => {
           <button onClick={setBreakfast} className={styles.menuButton}>Desayuno</button>
           <button  onClick={setDay} className={styles.menuButton}>Día</button>
           <div className={styles.items}>
-          {choice.map((items, index) => {
-            return (
+          {choice.map((items, index) => 
+             (
               <Item 
               key={index} 
               items={items} 
               className={styles.item}
-              onClick={(e) => addProduct(e.target)}
+              onClick={addProduct}
               />
-              );
-            })}
+             )
+            )}
         </div>
         </div>
         <div className={styles.order}>
           <input type="text" placeholder='Cliente'/><br />
           <div className={styles.eachOrder}>
-            <span className={styles.itemsSelection}></span>
+            <span className={styles.itemsSelection}>{pedido.map((item, index) => (<p key={index}>{`${item.name} $${item.price}`}</p>))}</span>
             <label >Total</label><br />
             <label >Observación</label>
             <input type="text" /><br />

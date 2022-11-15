@@ -49,8 +49,8 @@
 
 .orders .order {
     background: #B9AEAE;
-    width: 427px;
-    height: 350px;
+    /* width: 427px;
+    height: 350px; */
     border-radius: 2px;
 }
 
@@ -68,8 +68,16 @@
     color: black;
 }
 
-.orders .eachOrder {
+/* .orders .eachOrder {
     margin-top: 150px;
+} */
+
+/* .orders .itemsSelection {
+    padding-left: 10px;
+} */
+
+.orders p {
+    padding-left: 20px;
 }
 
 .orders label {
@@ -82,6 +90,7 @@
     border: none;
     margin-top: 0px;
     margin-left: 180px;
+    margin-bottom: 5px;
     width: 80px;
     height: 36px;
     border-radius: 5px;
