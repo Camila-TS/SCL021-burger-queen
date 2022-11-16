@@ -1,7 +1,7 @@
 import React from 'react'
-// import {
-//   Link
-// } from "react-router-dom";
+import {
+  Link
+} from "react-router-dom";
 
 import Logo from '../components/Logo';
 import styles from './orders.module.css';
@@ -34,10 +34,22 @@ const addProduct = (item) => {
     ...pedido,
     item
   ]);
-
-  //console.log(pedido)
-
 }
+//  console.log(pedido)
+ // console.log(pedido[0].price)
+
+let allPrices = [];
+for (let i = 0; i < pedido.length; i++) {
+  for (let key in pedido[i]) {
+    if (pedido[i].hasOwnProperty(key) && key === "price") {
+      allPrices.push(pedido[i][key]);
+    }
+  }
+}
+//console.log(allPrices)
+
+const totalPrice = allPrices.length >= 1 ?  allPrices.reduce((a,b) => a+b) : 0
+//console.log(totalPrice)
 
   return (
     <div className={styles.orders}>
@@ -67,14 +79,15 @@ const addProduct = (item) => {
           <input type="text" placeholder='Cliente'/><br />
           <div className={styles.eachOrder}>
             <span className={styles.itemsSelection}>{pedido.map((item, index) => (<p key={index}>{`${item.name} $${item.price}`}</p>))}</span>
-            <label >Total</label><br />
-            <label >Observación</label>
+            <label>Total</label>
+            <p id={styles.total}>{`$${totalPrice}`}</p><br />
+            <label>Observación</label>
             <input type="text" /><br />
           </div>
           <button id={styles.sendButton}>Enviar</button>
         </div>
       </div>
-      <button className={styles.kitchenButton}>Cocina</button>
+      <button className={styles.kitchenButton}><Link to="/kitchen" className={styles.link}>Cocina</Link></button>
 
     </div>
   )

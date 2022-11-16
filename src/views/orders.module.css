@@ -85,6 +85,13 @@
     font-size: 22px;
 }
 
+.orders #total {
+    margin: 0px;
+    width: 100px;
+    margin-top: -22px;
+    margin-left: 100px;
+}
+
 .orders #sendButton {
     background-color: #ffb347;
     border: none;
@@ -106,6 +113,10 @@
     padding: 6px 20px;
     margin-top: 100px;
     margin-left: 870px;
+}
+
+.orders .link {
+    text-decoration: none;  
 }
 
 @media only screen and (max-width: 830px) {
