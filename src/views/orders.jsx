@@ -7,6 +7,7 @@ import Logo from '../components/Logo';
 import styles from './orders.module.css';
 import Menu from '../menu.json'
 import Item from '../components/Item';
+import Selections from '../components/Selection';
 
 function Orders() {
 
@@ -78,9 +79,31 @@ const totalPrice = allPrices.length >= 1 ?  allPrices.reduce((a,b) => a+b) : 0
         <div className={styles.order}>
           <input type="text" placeholder='Cliente'/><br />
           <div className={styles.eachOrder}>
-            <span className={styles.itemsSelection}>{pedido.map((item, index) => (<p key={index}>{`${item.name} $${item.price}`}</p>))}</span>
-            <label>Total</label>
-            <p id={styles.total}>{`$${totalPrice}`}</p><br />
+            <div className={styles.itemsSelection}>
+              {pedido.map((item, index) => 
+               (
+                <Selections 
+                key={index}
+                item={item}
+                className={styles.itemsContainer}
+                styles={styles}
+                pedido={pedido}
+                setPedido={setPedido}
+                />
+                // <div 
+                // key={index}
+                // className={styles.itemsContainer}>
+                //   <span className={styles.nameSelection}>{item.name}</span> 
+                //   <span className={styles.priceSelection}>{`S${item.price}`}</span>
+                //   <img id={styles.delete} alt='Eliminar' src="https://i.ibb.co/bdM5MsM/eliminar3.png"/>
+                // </div>
+               )
+              )}
+            </div>
+            <div className={styles.totalContainer}>
+              <label id={styles.totalLabel}>Total</label>
+              <p id={styles.total}>{`$${totalPrice}`}</p><br />
+            </div>
             <label>Observación</label>
             <input type="text" /><br />
           </div>
