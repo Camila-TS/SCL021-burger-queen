@@ -7,88 +7,89 @@ import Logo from '../components/Logo';
 import styles from './orders.module.css';
 import Menu from '../menu.json'
 import Item from '../components/Item';
-import Selections from '../components/Selection';
+import Selections from '../components/Selections';
 
 function Orders() {
 
   const [menuOption, setMenuOption] = React.useState(true);
   const [pedido, setPedido] = React.useState([]);
-  
-    const setBreakfast = () => {
-        setMenuOption(true)
-    }
-    const setDay = () => {
-        setMenuOption(false)
-    }
 
-const breakfast = Menu.breakfast;
-const day = Menu.day;
+  const setBreakfast = () => {
+    setMenuOption(true)
+  }
+  const setDay = () => {
+    setMenuOption(false)
+  }
 
-// console.log(breakfast)
-// console.log(day)
+  const breakfast = Menu.breakfast;
+  const day = Menu.day;
 
-const choice = menuOption ? breakfast : day
+  // console.log(breakfast)
+  // console.log(day)
 
-const addProduct = (item) => {
+  const choice = menuOption ? breakfast : day
 
-  setPedido([
-    ...pedido,
-    item
-  ]);
-}
-//  console.log(pedido)
- // console.log(pedido[0].price)
+  const addProduct = (item) => {
 
-let allPrices = [];
-for (let i = 0; i < pedido.length; i++) {
-  for (let key in pedido[i]) {
-    if (pedido[i].hasOwnProperty(key) && key === "price") {
-      allPrices.push(pedido[i][key]);
+    setPedido([
+      ...pedido,
+      {...item, id:Math.random()}
+    ]);
+  }
+  //  console.log(pedido)
+  // console.log(pedido[0].price)
+
+  let allPrices = [];
+  for (let i = 0; i < pedido.length; i++) {
+    for (let key in pedido[i]) {
+      if (pedido[i].hasOwnProperty(key) && key === "price") {
+        allPrices.push(pedido[i][key]);
+      }
     }
   }
-}
-//console.log(allPrices)
+  //console.log(allPrices)
 
-const totalPrice = allPrices.length >= 1 ?  allPrices.reduce((a,b) => a+b) : 0
-//console.log(totalPrice)
+  const totalPrice = allPrices.length >= 1 ? allPrices.reduce((a, b) => a + b) : 0
+  //console.log(totalPrice)
 
   return (
     <div className={styles.orders}>
       <div className={styles.logoWrapper}>
-        <Logo className={styles.logo}/> 
-        <Logo className={styles.logo}/>
-        </div>
+        <Logo className={styles.logo} />
+        <Logo className={styles.logo} />
+      </div>
       <h1>Tomar Pedido</h1>
       <div className={styles.menuWrapper}>
         <div className={styles.buttonWrapper}>
           <button onClick={setBreakfast} className={styles.menuButton}>Desayuno</button>
-          <button  onClick={setDay} className={styles.menuButton}>Día</button>
+          <button onClick={setDay} className={styles.menuButton}>Día</button>
           <div className={styles.items}>
-          {choice.map((items, index) => 
-             (
-              <Item 
-              key={index} 
-              items={items} 
-              className={styles.item}
-              onClick={addProduct}
+            {choice.map((items, index) =>
+            (
+              <Item
+                key={index}
+                items={items}
+                className={styles.item}
+                onClick={addProduct}
               />
-             )
+            )
             )}
-        </div>
+          </div>
         </div>
         <div className={styles.order}>
-          <input type="text" placeholder='Cliente'/><br />
+          <input type="text" placeholder='Cliente' /><br />
           <div className={styles.eachOrder}>
             <div className={styles.itemsSelection}>
-              {pedido.map((item, index) => 
-               (
-                <Selections 
-                key={index}
-                item={item}
-                className={styles.itemsContainer}
-                styles={styles}
-                pedido={pedido}
-                setPedido={setPedido}
+              {pedido.map((item, index) =>
+              (
+                <Selections
+                  key={index}
+                  item={item}
+                  id={index}
+                  className={styles.itemsContainer}
+                  styles={styles}
+                  pedido={pedido}
+                  setPedido={setPedido}
                 />
                 // <div 
                 // key={index}
@@ -97,7 +98,7 @@ const totalPrice = allPrices.length >= 1 ?  allPrices.reduce((a,b) => a+b) : 0
                 //   <span className={styles.priceSelection}>{`S${item.price}`}</span>
                 //   <img id={styles.delete} alt='Eliminar' src="https://i.ibb.co/bdM5MsM/eliminar3.png"/>
                 // </div>
-               )
+              )
               )}
             </div>
             <div className={styles.totalContainer}>

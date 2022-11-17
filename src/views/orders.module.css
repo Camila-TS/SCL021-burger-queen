@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
 
+.orders {
+    display:flex;
+    flex-direction: column;
+}
+
 .orders .logoWrapper {
     display: flex;
     justify-content: space-between;
@@ -49,9 +54,10 @@
 
 .orders .order {
     background: #B9AEAE;
-    /* width: 427px;
-    height: 350px; */
     border-radius: 2px;
+    height: fit-content;
+    max-height: 550px;
+    overflow-y: scroll;
 }
 
 .orders input {
@@ -67,14 +73,6 @@
 .orders ::placeholder {
     color: black;
 }
-
-/* .orders .eachOrder {
-    margin-top: 150px;
-} */
-
-/* .orders .itemsSelection {
-    padding-left: 10px;
-} */
 
 .orders .itemsContainer {
 display: flex;
@@ -92,7 +90,7 @@ height: 40px;
 }
 
 .orders .nameSelection {
-    width: 80px;
+    width: 150px;
     margin: 20px;
     margin-left: 30px;
     margin-right: -200px;
@@ -129,7 +127,7 @@ height: 40px;
 .orders #total {
     margin: 0px;
     width: 100px;
-    margin-left: 60px;
+    margin-left: 90px;
     font-size: 22px;
 }
 
@@ -138,7 +136,7 @@ height: 40px;
     border: none;
     margin-top: 0px;
     margin-left: 180px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     width: 80px;
     height: 36px;
     border-radius: 5px;
@@ -152,8 +150,9 @@ height: 40px;
     border: none;
     background: #75C3EE;
     padding: 6px 20px;
-    margin-top: 100px;
+    margin-top: 700px;
     margin-left: 870px;
+    position: fixed;
 }
 
 .orders .link {
@@ -170,17 +169,17 @@ height: 40px;
         margin-left: -20px;
     }
 
-    /* .orders .order {
-        width: 400px;
-        height: 380px;
-    } */
+    .orders .order {
+        max-height: 700px;
+        overflow-y: scroll;
+    }
 
     .orders .eachOrder {
         margin-top: 0px;
     }
 
     .orders .kitchenButton {
-        margin-top: 290px;
+        margin-top: 950px;
         margin-left: 620px;
     }
 }
