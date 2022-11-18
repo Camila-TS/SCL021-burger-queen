@@ -91,13 +91,6 @@ function Orders() {
                   pedido={pedido}
                   setPedido={setPedido}
                 />
-                // <div 
-                // key={index}
-                // className={styles.itemsContainer}>
-                //   <span className={styles.nameSelection}>{item.name}</span> 
-                //   <span className={styles.priceSelection}>{`S${item.price}`}</span>
-                //   <img id={styles.delete} alt='Eliminar' src="https://i.ibb.co/bdM5MsM/eliminar3.png"/>
-                // </div>
               )
               )}
             </div>

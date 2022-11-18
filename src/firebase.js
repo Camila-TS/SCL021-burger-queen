@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, addDoc, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3lithBjQb8fCsKqsk2jhTtkEkknAYrLg",
@@ -15,3 +15,41 @@ const app = initializeApp(firebaseConfig);
 
 //Inicializa firestore
 const db = getFirestore(app);
+
+// Crear colección
+export async function createOrder(name, orderContent, observation) {
+
+    try {
+      const docRef = await addDoc(collection(db, "orders"), {
+
+        client: name,
+        content: orderContent,
+        date: new Date().toLocaleString(),
+        observation: observation
+
+      });
+      // console.log("Document written with ID: ", docRef.id);
+      return docRef.id;
+    } catch (e) {
+      console.error("Error adding document: ", e); 
+      throw e;
+    }
+  }
+
+  // recuperar toda la colección
+//  export const allOrders = async () => {
+//     try {
+//       const ordersArr = [];
+//       const querySnapshot = await getDocs(collection(db, 'orders'));
+//       querySnapshot.forEach((orderDoc) => {
+//         const eachOrder = orderDoc.data();
+//         eachOrder.id = orderDoc.id;
+//        ordersArr.push(eachOrder);
+//        console.log(eachOrder)
+//       //  console.log(ordersArr)
+//       });
+//       return ordersArr;
+//     } catch (e) {
+//       console.log('Error get all documents', e.message);
+//     }
+//   };

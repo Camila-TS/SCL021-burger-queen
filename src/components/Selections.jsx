@@ -9,8 +9,9 @@ const Selections = ({ item, className, styles, pedido, setPedido }) => {
     setPedido(pedidoFiltered)
     //console.log(pedidoFiltered)
     console.log(item)
-
   }
+
+  console.log(pedido)
 
   return (
     <div
