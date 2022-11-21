@@ -17,13 +17,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Crear colección
-export async function createOrder(name, orderContent, observation) {
+export async function createOrder(name, productList, observation) {
 
     try {
       const docRef = await addDoc(collection(db, "orders"), {
 
         client: name,
-        content: orderContent,
+        content: productList,
         date: new Date().toLocaleString(),
         observation: observation
 

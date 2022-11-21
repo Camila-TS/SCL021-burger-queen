@@ -8,11 +8,14 @@ import styles from './orders.module.css';
 import Menu from '../menu.json'
 import Item from '../components/Item';
 import Selections from '../components/Selections';
+import { createOrder } from '../firebase'
 
 function Orders() {
 
   const [menuOption, setMenuOption] = React.useState(true);
   const [pedido, setPedido] = React.useState([]);
+  const [name, setName] = React.useState('')
+  const [observation, setObservation] = React.useState('')
 
   const setBreakfast = () => {
     setMenuOption(true)
@@ -33,7 +36,7 @@ function Orders() {
 
     setPedido([
       ...pedido,
-      {...item, id:Math.random()}
+      { ...item, id: Math.random() }
     ]);
   }
   //  console.log(pedido)
@@ -48,6 +51,31 @@ function Orders() {
     }
   }
   //console.log(allPrices)
+
+  const addOrder = async () => {
+
+    let productList = pedido.map((item) => item.name)
+
+    if (!name.trim()) {
+      console.log('está vacío el nombre')
+      return
+    }
+
+    if (productList.length === 0) {
+      console.log('está vacío el contenido')
+      return
+    }
+
+    console.log('procesando datos...' + name + ' ' + productList + ' ' + observation)
+
+    await createOrder(name, productList, observation)
+
+    setPedido([])
+    setName('')
+    setObservation('')
+
+  }
+
 
   const totalPrice = allPrices.length >= 1 ? allPrices.reduce((a, b) => a + b) : 0
   //console.log(totalPrice)
@@ -77,7 +105,12 @@ function Orders() {
           </div>
         </div>
         <div className={styles.order}>
-          <input type="text" placeholder='Cliente' /><br />
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder='Cliente'
+          /><br />
           <div className={styles.eachOrder}>
             <div className={styles.itemsSelection}>
               {pedido.map((item, index) =>
@@ -99,9 +132,13 @@ function Orders() {
               <p id={styles.total}>{`$${totalPrice}`}</p><br />
             </div>
             <label>Observación</label>
-            <input type="text" /><br />
+            <input
+              value={observation}
+              onChange={(e) => setObservation(e.target.value)}
+              type="text"
+            /><br />
           </div>
-          <button id={styles.sendButton}>Enviar</button>
+          <button onClick={ addOrder } id={styles.sendButton}>Enviar</button>
         </div>
       </div>
       <button className={styles.kitchenButton}><Link to="/kitchen" className={styles.link}>Cocina</Link></button>

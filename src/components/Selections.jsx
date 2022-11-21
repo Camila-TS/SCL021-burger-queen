@@ -7,11 +7,10 @@ const Selections = ({ item, className, styles, pedido, setPedido }) => {
   const deleteItem = () => {
     const pedidoFiltered = pedido.filter(element => element.id !== item.id)
     setPedido(pedidoFiltered)
-    //console.log(pedidoFiltered)
-    console.log(item)
+    //console.log(item)
   }
 
-  console.log(pedido)
+  //console.log(pedido)
 
   return (
     <div
