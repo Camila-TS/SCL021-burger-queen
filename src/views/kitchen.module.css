@@ -46,3 +46,52 @@
     height: 287px;
     margin-top: 15px;
 }
+
+#clientName {
+    text-align: center;
+    padding-top: 7px;
+}
+
+#date {
+    text-align: center;
+}
+
+#content {
+    padding-left: 8px;
+}
+
+#obsLabel {
+    padding-left: 8px;
+}
+
+#obsContent {
+    padding-left: 8px;
+}
+
+.buttonsWrapper {
+    display: flex;
+    /* justify-content: space-around; */
+    position: fixed;
+    margin-top: 245px;
+}
+
+#peso {
+    width: 30px;
+    height: 3opx;
+    margin-left: 5px;
+}
+
+#edit {
+    width: 30px;
+    height: 3opx;
+    margin-left: 32px;
+}
+
+button {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #F43E3E;
+    margin-left: 23px;
+    font-size: 21px;
+    width: 110px;
+}

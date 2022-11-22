@@ -36,14 +36,6 @@ function Kitchen() {
           />
         )
         )}
-        {/* {list.map((item,index) => (
-            <div key={index} className={styles.eachOrder}>
-              <span>{item.client}</span>
-              <span>{item.date}</span>
-              <span>{item.observation}</span>
-            </div>
-          )
-          )} */}
       </div>
     </div>
   )
