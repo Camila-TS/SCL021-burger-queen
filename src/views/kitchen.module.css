@@ -1,4 +1,9 @@
-
+.kitchen {
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
 
 .kitchen .logoWrapper {
     display: flex;
@@ -19,18 +24,12 @@
     text-align: center;
 }
 
-/* .kitchen .preparations {
-    display: flex;
-    flex-direction: column;
-    background: #B9AEAE;
-    width: 233px;
-    height: 287px;
-} */
-
 .kitchen .ordersWrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    max-height: 750px;
+    overflow-y: scroll;
 }
 
 .kitchen hr {
@@ -43,8 +42,10 @@
     flex-direction: column;
     background: #B9AEAE;
     width: 233px;
-    height: 287px;
+    height: 297px;
     margin-top: 15px;
+    position: relative;
+    margin-bottom: 5px;
 }
 
 #clientName {
@@ -56,12 +57,18 @@
     text-align: center;
 }
 
-#content {
+.food {
+    overflow-y: scroll;
+    max-height: 150px;
     padding-left: 8px;
 }
 
-#obsLabel {
+/* #content {
     padding-left: 8px;
+} */
+
+#obsLabel {
+    font-weight: bold;
 }
 
 #obsContent {
@@ -70,8 +77,7 @@
 
 .buttonsWrapper {
     display: flex;
-    /* justify-content: space-around; */
-    position: fixed;
+    position: absolute;
     margin-top: 245px;
 }
 
@@ -99,4 +105,11 @@
 
 .preparationItem .ready {
     background-color: #5CCC6E;
+    font-size: 13px;
+}
+
+#servedDate {
+  margin-top: 40px;
+  margin-left: 77px;
+  position: absolute;
 }
