@@ -87,11 +87,16 @@
     margin-left: 32px;
 }
 
-button {
+.preparationItem button {
     text-align: center;
     border-radius: 10px;
     background-color: #F43E3E;
     margin-left: 23px;
     font-size: 21px;
     width: 110px;
+    border: none;
+}
+
+.preparationItem .ready {
+    background-color: #5CCC6E;
 }
