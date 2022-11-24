@@ -113,3 +113,32 @@
   margin-left: 77px;
   position: absolute;
 }
+
+.kitchen .takeOrder {
+    margin-left: 830px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: lighter;
+    border-radius: 10px;
+    border: none;
+    background: #75C3EE;
+    padding: 6px 0px;
+    width: 165px;
+}
+
+.kitchen .link {
+    text-decoration: none;  
+}
+
+@media only screen and (max-width: 830px) {
+
+    .kitchen .ordersWrapper {
+        max-height: 880px;
+    }
+
+    .kitchen .takeOrder {
+        margin-left: 590px;
+        margin-top: 190px;
+    }
+}
