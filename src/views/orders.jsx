@@ -99,6 +99,7 @@ function Orders() {
                 items={items}
                 className={styles.item}
                 onClick={addProduct}
+                data-testid="menuItems"
               />
             )
             )}
