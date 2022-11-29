@@ -91,7 +91,7 @@ function Orders() {
         <div className={styles.buttonWrapper}>
           <button onClick={setBreakfast} className={styles.menuButton}>Desayuno</button>
           <button onClick={setDay} className={styles.menuButton}>Día</button>
-          <div className={styles.items}>
+          <div  className={styles.items}>
             {choice.map((items, index) =>
             (
               <Item
@@ -99,7 +99,6 @@ function Orders() {
                 items={items}
                 className={styles.item}
                 onClick={addProduct}
-                data-testid="menuItems"
               />
             )
             )}
